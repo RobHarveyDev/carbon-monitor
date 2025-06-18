@@ -6,7 +6,6 @@ use App\Services\CarbonIntensityService;
 use App\Services\LowCarbonPeriodFinder;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\App;
 
 class GetDailyLowCarbonPeriods extends Command
 {
@@ -33,7 +32,7 @@ class GetDailyLowCarbonPeriods extends Command
         } else {
             $this->info('3-hour low/very low carbon periods for today:');
             foreach ($periods as $period) {
-                $this->line($period['start'] . ' to ' . $period['end']);
+                $this->line($period['start'].' to '.$period['end']);
             }
         }
     }

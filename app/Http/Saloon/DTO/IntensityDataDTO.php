@@ -5,6 +5,7 @@ namespace App\Http\Saloon\DTO;
 class IntensityDataDTO
 {
     public array $actual;
+
     public array $forecast;
 
     public function __construct(array $actual, array $forecast)
@@ -34,6 +35,7 @@ class IntensityDataDTO
                 }
             }
         }
+
         return new self($actual, $forecast);
     }
 }

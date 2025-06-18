@@ -24,6 +24,7 @@ class IntensityForward24hRequest extends Request
         $data = $response->json('data') ?? [];
         // Only set forecast, actual should be empty
         $dto = IntensityDataDTO::fromApiResponse($data);
+
         return new IntensityDataDTO([], $dto->forecast);
     }
 }

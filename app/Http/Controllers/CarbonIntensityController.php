@@ -11,6 +11,7 @@ class CarbonIntensityController
     public function today()
     {
         $intensity = $this->service->getIntensityToday();
+
         return response()->json($intensity);
     }
 }

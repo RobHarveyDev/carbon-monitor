@@ -34,6 +34,7 @@ class LowCarbonPeriodFinder
                 $start++;
             }
         }
+
         return $periods;
     }
 }

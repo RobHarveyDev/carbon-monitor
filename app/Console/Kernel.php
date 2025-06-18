@@ -13,4 +13,3 @@ class Kernel extends ConsoleKernel
         $schedule->command(GetDailyLowCarbonPeriods::class)->dailyAt('6:00');
     }
 }
-
