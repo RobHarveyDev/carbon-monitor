@@ -32,8 +32,8 @@ class GetDailyLowCarbonPeriods extends Command
             $this->info('No 3-hour low/very low carbon periods found for today.');
         } else {
             $this->info('3-hour low/very low carbon periods for today:');
-            foreach ($periods as $window) {
-                $this->line(implode(' to ', [$window[0], $window[2]]));
+            foreach ($periods as $period) {
+                $this->line($period['start'] . ' to ' . $period['end']);
             }
         }
     }

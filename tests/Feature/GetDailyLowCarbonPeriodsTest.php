@@ -32,15 +32,17 @@ class GetDailyLowCarbonPeriodsTest extends TestCase
         $mockService = Mockery::mock(CarbonIntensityService::class);
         $mockService->shouldReceive('getIntensityToday')->andReturn(new IntensityDataDTO([], [
             '2025-06-18T06:00Z' => ['intensity' => 50, 'band' => 'low'],
-            '2025-06-18T07:00Z' => ['intensity' => 40, 'band' => 'very low'],
-            '2025-06-18T08:00Z' => ['intensity' => 30, 'band' => 'low'],
-            '2025-06-18T09:00Z' => ['intensity' => 20, 'band' => 'moderate'],
+            '2025-06-18T06:30Z' => ['intensity' => 40, 'band' => 'very low'],
+            '2025-06-18T07:00Z' => ['intensity' => 30, 'band' => 'low'],
+            '2025-06-18T07:30Z' => ['intensity' => 20, 'band' => 'very low'],
+            '2025-06-18T08:00Z' => ['intensity' => 10, 'band' => 'low'],
+            '2025-06-18T08:30Z' => ['intensity' => 5, 'band' => 'very low'],
         ]));
         $this->app->instance(CarbonIntensityService::class, $mockService);
 
         $this->artisan('intensity:daily-low-periods')
             ->expectsOutput('3-hour low/very low carbon periods for today:')
-            ->expectsOutput('2025-06-18T06:00Z to 2025-06-18T08:00Z')
+            ->expectsOutput('2025-06-18T06:00Z to 2025-06-18T08:30Z')
             ->assertExitCode(0);
     }
 }
