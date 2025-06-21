@@ -44,7 +44,7 @@ class CurrentIntensityTest extends TestCase
             'periodTo' => '2025-06-20T10:30:00Z',
             'actualIntensity' => 120,
             'forecastIntensity' => 130,
-            'actualBand' => IntensityIndex::MODERATE->value,
+            'intensityIndex' => IntensityIndex::MODERATE->value,
         ]);
     }
 }

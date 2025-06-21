@@ -55,14 +55,14 @@ class IntensityForecastTest extends TestCase
                     'periodTo' => '2025-06-20T00:30:00Z',
                     'actualIntensity' => null,
                     'forecastIntensity' => 120,
-                    'actualBand' => IntensityIndex::MODERATE->value,
+                    'intensityIndex' => IntensityIndex::MODERATE->value,
                 ],
                 [
                     'periodFrom' => '2025-06-20T00:30:00Z',
                     'periodTo' => '2025-06-20T01:00:00Z',
                     'actualIntensity' => null,
                     'forecastIntensity' => 110,
-                    'actualBand' => IntensityIndex::LOW->value,
+                    'intensityIndex' => IntensityIndex::LOW->value,
                 ],
             ]);
     }

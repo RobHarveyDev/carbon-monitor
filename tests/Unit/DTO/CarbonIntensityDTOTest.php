@@ -29,6 +29,6 @@ class CarbonIntensityDTOTest extends TestCase
         $this->assertTrue($dto->periodTo->eq(Carbon::parse('2025-06-20T10:30Z')));
         $this->assertSame(120, $dto->actualIntensity);
         $this->assertSame(130, $dto->forecastIntensity);
-        $this->assertSame(IntensityIndex::MODERATE, $dto->actualBand);
+        $this->assertSame(IntensityIndex::MODERATE, $dto->intensityIndex);
     }
 }

@@ -13,7 +13,7 @@ readonly class CarbonIntensityDTO implements JsonSerializable
         public Carbon $periodTo,
         public ?int $actualIntensity,
         public int $forecastIntensity,
-        public IntensityIndex $actualBand,
+        public IntensityIndex $intensityIndex,
     ) {}
 
     public static function fromApiResponse(array $data): self
@@ -34,7 +34,7 @@ readonly class CarbonIntensityDTO implements JsonSerializable
             'periodTo' => $this->periodTo->toIso8601ZuluString(),
             'actualIntensity' => $this->actualIntensity,
             'forecastIntensity' => $this->forecastIntensity,
-            'actualBand' => $this->actualBand->value,
+            'intensityIndex' => $this->intensityIndex->value,
         ];
     }
 }
