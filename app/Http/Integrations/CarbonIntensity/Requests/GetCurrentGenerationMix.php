@@ -32,7 +32,7 @@ class GetCurrentGenerationMix extends Request
     {
         return array_map(
             fn (array $data) => GenerationMixDTO::fromApiResponse($data),
-            $response->json('data.0.generationmix')
+            $response->json('data.generationmix')
         );
     }
 }

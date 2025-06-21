@@ -16,15 +16,13 @@ class IntensityGenerationNowTest extends TestCase
         // Arrange: Mock the third-party response
         $mockResponse = [
             'data' => [
-                [
-                    'from' => '2025-06-20T00:00Z',
-                    'to' => '2025-06-20T00:30Z',
-                    'generationmix' => [
-                        ['fuel' => 'gas', 'perc' => 40.5],
-                        ['fuel' => 'nuclear', 'perc' => 19.5],
-                        ['fuel' => 'wind', 'perc' => 25.0],
-                        ['fuel' => 'solar', 'perc' => 15.0],
-                    ],
+                'from' => '2025-06-20T00:00Z',
+                'to' => '2025-06-20T00:30Z',
+                'generationmix' => [
+                    ['fuel' => 'gas', 'perc' => 40.5],
+                    ['fuel' => 'nuclear', 'perc' => 19.5],
+                    ['fuel' => 'wind', 'perc' => 25.0],
+                    ['fuel' => 'solar', 'perc' => 15.0],
                 ],
             ],
         ];
