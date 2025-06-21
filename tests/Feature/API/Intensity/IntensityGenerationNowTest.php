@@ -2,6 +2,7 @@
 
 namespace Feature\API\Intensity;
 
+use App\Http\Integrations\CarbonIntensity\Requests\GetCurrentGenerationMix;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Laravel\Facades\Saloon;
@@ -33,7 +34,10 @@ class IntensityGenerationNowTest extends TestCase
         // Act: Call the endpoint
         $response = $this->getJson('/api/intensity/generation/now');
 
-        // Assert: Check the response structure and data
+        // Assert
+        Saloon::assertSentCount(1);
+        Saloon::assertSent(GetCurrentGenerationMix::class);
+
         $response->assertStatus(200)
             ->assertJson([
                 ['fuelType' => 'Gas', 'percentage' => 40.5],

@@ -3,6 +3,7 @@
 namespace Feature\API\Intensity;
 
 use App\Enums\IntensityIndex;
+use App\Http\Integrations\CarbonIntensity\Requests\Get48hCarbonIntensityFromDateTime;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Saloon\Http\Faking\MockResponse;
@@ -47,7 +48,10 @@ class IntensityForecastTest extends TestCase
         // Act: Call the API endpoint
         $response = $this->getJson('/api/intensity/forecast');
 
-        // Assert: Check the response
+        // Assert
+        Saloon::assertSentCount(1);
+        Saloon::assertSent(Get48hCarbonIntensityFromDateTime::class);
+
         $response->assertStatus(200)
             ->assertJson([
                 [
