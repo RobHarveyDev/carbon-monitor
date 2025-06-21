@@ -12,6 +12,7 @@ class GetCarbonIntensityForecastController
     public function __invoke(): JsonResponse
     {
         $forecast = $this->service->getIntensityForecast();
+
         return response()->json($forecast);
     }
 }

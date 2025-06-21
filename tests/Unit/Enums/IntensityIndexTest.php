@@ -34,4 +34,3 @@ class IntensityIndexTest extends TestCase
         IntensityIndex::fromString('invalid');
     }
 }
-

@@ -12,6 +12,7 @@ class GetCurrentCarbonIntensityController
     public function __invoke(): JsonResponse
     {
         $intensity = $this->service->getCurrentIntensity();
+
         return response()->json($intensity);
     }
 }
