@@ -4,7 +4,9 @@ namespace App\Http\Integrations;
 
 use App\Http\Integrations\CarbonIntensity\CarbonIntensityConnector;
 use App\Http\Integrations\CarbonIntensity\DTO\CarbonIntensityDTO;
+use App\Http\Integrations\CarbonIntensity\DTO\GenerationMixDTO;
 use App\Http\Integrations\CarbonIntensity\Requests\Get48hCarbonIntensityFromDateTime;
+use App\Http\Integrations\CarbonIntensity\Requests\GetCurrentGenerationMix;
 use App\Http\Integrations\CarbonIntensity\Requests\GetCurrentIntensity;
 
 class CarbonIntensityService
@@ -25,6 +27,17 @@ class CarbonIntensityService
     public function getIntensityForecast(): array
     {
         $request = new Get48hCarbonIntensityFromDateTime(now());
+        $response = $this->connector->send($request);
+
+        return $request->createDtoFromResponse($response);
+    }
+
+    /**
+     * @return GenerationMixDTO[]
+     */
+    public function getCurrentGenerationMix(): array
+    {
+        $request = new GetCurrentGenerationMix;
         $response = $this->connector->send($request);
 
         return $request->createDtoFromResponse($response);
